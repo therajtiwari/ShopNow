@@ -1,6 +1,8 @@
 import React from "react";
+// components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HomeScreen from "./screens/HomeScreen";
 import { Container } from "react-bootstrap";
 
 // custom css
@@ -10,8 +12,9 @@ const App = () => {
     <>
       <Header />
       <main>
-        <Container className="text-center py-5">
+        <Container fluid className="text-center py-5" style={{ width: "80%" }}>
           <h1>Welcome to SmartShop</h1>
+          <HomeScreen />
         </Container>
       </main>
       <Footer />
