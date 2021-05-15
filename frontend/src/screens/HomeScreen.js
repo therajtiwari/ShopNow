@@ -6,7 +6,13 @@ import Product from "../components/Product";
 function HomeScreen() {
   return (
     <>
-      <h2>Trending Products</h2>
+      <h1>Trending Products</h1>
+      <hr
+        style={{
+          margin: "1rem 0rem 2rem 0rem ",
+          border: "1px solid lightgrey",
+        }}
+      />
       <Row>
         {products.map((product) => (
           <Col sm={6} md={6} lg={4} xl={3} className="my-4" key={product.id}>
