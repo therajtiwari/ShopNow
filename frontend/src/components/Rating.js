@@ -4,10 +4,13 @@ import PropTypes from "prop-types";
 function Rating({ rating, reviewCount, color }) {
   const numbers = [1, 2, 3, 4, 5];
   return (
-    <div className="rating">
+    <>
       {numbers.map((number) => (
         <span
-          style={number == 5 ? { marginRight: "10px" } : { marginRight: "1px" }}
+          key={number}
+          style={
+            number === 5 ? { marginRight: "10px" } : { marginRight: "1px" }
+          }
         >
           <i
             style={{ color: color }}
@@ -22,7 +25,7 @@ function Rating({ rating, reviewCount, color }) {
         </span>
       ))}
       <span>{reviewCount ? reviewCount : 0} Reviews</span>
-    </div>
+    </>
   );
 }
 

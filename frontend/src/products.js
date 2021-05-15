@@ -1,20 +1,22 @@
 const products = [
   {
-    name: "iphone 12",
+    name: "iphone 12 Pro Max",
+    id: 1,
     image: "/images/apple_iphone_12.jpg",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic est atque ratione. Totam nesciunt autem minus obcaecati ullam sunt rem.",
     brand: "apple",
     category: "Electronics",
     sub_category: "Mobile phones",
-    price: 90000,
+    price: 130000,
     avalaibleStock: 24,
     rating: 4,
-    numReviews: 10,
+    reviewCount: 10,
   },
 
   {
     name: "Samsung Galaxy S20",
+    id: 2,
     image: "/images/samsung_galaxy_s20.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -23,11 +25,12 @@ const products = [
     sub_category: "Mobile phones",
     price: 80000,
     avalaibleStock: 15,
-    rating: 4,
-    numReviews: 15,
+    rating: 4.6,
+    reviewCount: 15,
   },
   {
     name: "Sony PS5",
+    id: 3,
     image: "/images/sony_ps5.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -37,10 +40,11 @@ const products = [
     price: 45000,
     avalaibleStock: 1,
     rating: 5,
-    numReviews: 5,
+    reviewCount: 5,
   },
   {
     name: "Apple Airpods Pro",
+    id: 4,
     image: "/images/apple_airpods_pro.jpeg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -49,11 +53,12 @@ const products = [
     sub_category: "Earphones and Headphones",
     price: 20000,
     avalaibleStock: 100,
-    rating: 4,
-    numReviews: 50,
+    rating: 3.8,
+    reviewCount: 50,
   },
   {
     name: "Sony Headphone",
+    id: 5,
     image: "/images/sony_headphone.jpeg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -62,11 +67,12 @@ const products = [
     sub_category: "Earphones and Headphones",
     price: 30000,
     avalaibleStock: 24,
-    rating: 5,
-    numReviews: 20,
+    rating: 3.8,
+    reviewCount: 20,
   },
   {
     name: "MSI RTX 3090",
+    id: 6,
     image: "/images/msi_rtx_3090.jpeg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -76,10 +82,11 @@ const products = [
     price: 150000,
     avalaibleStock: 5,
     rating: 5,
-    numReviews: 10,
+    reviewCount: 10,
   },
   {
     name: "Sony Alpha 5",
+    id: 7,
     image: "/images/sony_alpha_camera.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -88,11 +95,12 @@ const products = [
     sub_category: "Cameras",
     price: 200000,
     avalaibleStock: 10,
-    rating: 5,
-    numReviews: 5,
+    rating: 4.5,
+    reviewCount: 5,
   },
   {
     name: "Yamaha fs80c",
+    id: 8,
     image: "/images/yamaha_fs80c_guitar.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -101,8 +109,8 @@ const products = [
     sub_category: "Guitars",
     price: 8000,
     avalaibleStock: 2,
-    rating: 5,
-    numReviews: 9,
+    rating: 4.6,
+    reviewCount: 9,
   },
 ];
 

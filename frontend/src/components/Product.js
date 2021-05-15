@@ -3,6 +3,9 @@ import { Card, Button } from "react-bootstrap";
 //components
 import Rating from "./Rating";
 
+// routers
+import { Link } from "react-router-dom";
+
 function Product({ product }) {
   return (
     <>
@@ -14,11 +17,11 @@ function Product({ product }) {
         />
         <Card.Body>
           <Card.Title>
-            <a href={`/product/${product._id}`} style={{ color: "black" }}>
+            <Link to={`/product/${product.id}`} style={{ color: "black" }}>
               <strong>
                 <h3>{product.name}</h3>
               </strong>
-            </a>
+            </Link>
           </Card.Title>
 
           <Card.Text>
@@ -27,8 +30,9 @@ function Product({ product }) {
               reviewCount={product.reviewCount}
               color={"grey"}
             />
-            <h4 className="my-2">Rs {product.price}</h4>
           </Card.Text>
+          <h4 className="my-2">Rs {product.price}</h4>
+
           <Button variant="primary" className="my-2">
             Add To Cart
           </Button>
