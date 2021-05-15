@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Rating({ rating, reviewCount, color }) {
+function Rating({ rating, reviewCount, color, size }) {
   const numbers = [1, 2, 3, 4, 5];
   return (
     <>
@@ -13,7 +13,7 @@ function Rating({ rating, reviewCount, color }) {
           }
         >
           <i
-            style={{ color: color }}
+            style={{ color: color, fontSize: size }}
             className={
               rating >= number
                 ? "fas fa-star"
@@ -24,13 +24,16 @@ function Rating({ rating, reviewCount, color }) {
           ></i>
         </span>
       ))}
-      <span>{reviewCount ? reviewCount : 0} Reviews</span>
+      <span style={size > 1 ? { fontSize: "1rem" } : { fontSize: "1rem" }}>
+        {reviewCount ? reviewCount : 0} Reviews
+      </span>
     </>
   );
 }
 
 Rating.defaultProps = {
   color: "green",
+  size: "1rem",
 };
 
 Rating.propTypes = {
