@@ -1,5 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+//components
+import Rating from "./Rating";
 
 function Product({ product }) {
   return (
@@ -18,13 +20,18 @@ function Product({ product }) {
               </strong>
             </a>
           </Card.Title>
+
           <Card.Text>
-            <p>
-              Rated {product.rating} based on {product.numReviews} reviews
-            </p>
-            <h4>Rs {product.price}</h4>
+            <Rating
+              rating={product.rating}
+              reviewCount={product.reviewCount}
+              color={"grey"}
+            />
+            <h4 className="my-2">Rs {product.price}</h4>
           </Card.Text>
-          <Button variant="primary">Add To Cart</Button>
+          <Button variant="primary" className="my-2">
+            Add To Cart
+          </Button>
         </Card.Body>
       </Card>
     </>
