@@ -11,13 +11,14 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
-    phoneNo: {
-      type: String,
-      unique: true,
-    },
     password: {
       type: String,
       required: true,
+    },
+    phoneNo: {
+      type: String,
+      unique: true,
+      sparse: true,
     },
     isAdmin: {
       type: Boolean,
@@ -28,6 +29,6 @@ const userSchema = mongoose.Schema(
   { timestamp: true }
 );
 
-const User = moongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 export default User;
