@@ -1,0 +1,23 @@
+{
+  "name": "e-commerce_website",
+  "version": "1.0.0",
+  "description": "E-commerce website made using MERN stack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therajtiwari/e-commerce-MERN.git"
+  },
+  "author": "Raj Tiwari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/therajtiwari/e-commerce-MERN/issues"
+  },
+  "homepage": "https://github.com/therajtiwari/e-commerce-MERN#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
