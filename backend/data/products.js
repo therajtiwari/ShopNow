@@ -1,7 +1,6 @@
 const products = [
   {
     name: "iphone 12 Pro Max",
-    id: 1,
     image: "/images/apple_iphone_12.jpg",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic est atque ratione. Totam nesciunt autem minus obcaecati ullam sunt rem.",
@@ -16,7 +15,6 @@ const products = [
 
   {
     name: "Samsung Galaxy S20",
-    id: 2,
     image: "/images/samsung_galaxy_s20.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -30,7 +28,6 @@ const products = [
   },
   {
     name: "Sony PS5",
-    id: 3,
     image: "/images/sony_ps5.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -44,7 +41,6 @@ const products = [
   },
   {
     name: "Apple Airpods Pro",
-    id: 4,
     image: "/images/apple_airpods_pro.jpeg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -58,7 +54,6 @@ const products = [
   },
   {
     name: "Sony Headphone",
-    id: 5,
     image: "/images/sony_headphone.jpeg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -72,7 +67,6 @@ const products = [
   },
   {
     name: "MSI RTX 3090",
-    id: 6,
     image: "/images/msi_rtx_3090.jpeg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -86,7 +80,6 @@ const products = [
   },
   {
     name: "Sony Alpha 5",
-    id: 7,
     image: "/images/sony_alpha_camera.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
@@ -100,7 +93,6 @@ const products = [
   },
   {
     name: "Yamaha fs80c",
-    id: 8,
     image: "/images/yamaha_fs80c_guitar.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur consequatur voluptatum nam impedit praesentium illum dolore reprehenderit asperiores sed.",
