@@ -21,7 +21,7 @@ function ProductScreen({ match }) {
       const { data } = await axios.get(`/api/products/${match.params.id}`);
       setproduct(data);
     };
-    getDetails();
+    getDetails(); // eslint-disable-next-line
   }, []);
 
   return (
