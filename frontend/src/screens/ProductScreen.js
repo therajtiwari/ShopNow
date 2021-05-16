@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Row,
@@ -8,20 +8,31 @@ import {
   Nav,
   Tab,
 } from "react-bootstrap";
+import axios from "axios";
 
 // components
 import Rating from "../components/Rating";
-import products from "../products";
 
 function ProductScreen({ match }) {
-  const product = products.find((p) => String(p.id) === match.params.id);
-  console.log(match);
+  const [product, setproduct] = useState({});
+
+  useEffect(() => {
+    const getDetails = async () => {
+      const { data } = await axios.get(`/api/products/${match.params.id}`);
+      setproduct(data);
+    };
+    getDetails();
+  }, []);
 
   return (
     <Container fluid>
       <Row>
         <Col md={6} sm={5}>
-          <img src={product.image} style={{ width: "100%" }} />
+          <img
+            src={product.image}
+            style={{ width: "100%" }}
+            alt={product.image}
+          />
         </Col>
         <Col md={6}>
           <div
@@ -31,11 +42,10 @@ function ProductScreen({ match }) {
             <h1>{product.name}</h1>
             <hr style={{ margin: "1rem 0rem 2rem 0rem " }} />
             <h5>{product.description}</h5>
-            <div className="rating-div" className="my-3">
+            <div className="rating-div my-3">
               <Rating
                 rating={product.rating}
                 reviewCount={product.reviewCount}
-                color={"grey"}
                 size={"1.3rem"}
                 color="#295939"
               />
