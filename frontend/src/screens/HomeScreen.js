@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { Row, Col } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Row, Col, Container } from "react-bootstrap";
 // import products from "../products.js";
 import Product from "../components/Product";
-import axios from "axios";
+import Loader from "../components/Loader";
+
+import { listProducts } from "../actions/productActions";
+import { useDispatch, useSelector } from "react-redux";
 
 function HomeScreen() {
-  const [products, getproducts] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const getDetails = async () => {
-      const responeInfo = await axios.get("/api/products");
-      // const {data} = await axios.get("/api/products");
-      console.log(responeInfo);
-      getproducts(responeInfo.data);
-    };
-    getDetails();
-  }, []);
+    dispatch(listProducts());
+  }, [dispatch]);
+
+  const productList = useSelector((state) => state.productList);
+  // console.log(productList);
+  const { error, loading, products } = productList;
+
   return (
-    <>
+    <Container fluid style={{ width: "80%" }}>
       <h1>Trending Products</h1>
       <hr
         style={{
@@ -25,14 +27,21 @@ function HomeScreen() {
           border: "1px solid lightgrey",
         }}
       />
-      <Row>
-        {products.map((product) => (
-          <Col sm={6} md={6} lg={4} xl={3} className="my-4" key={product.id}>
-            <Product product={product} />
-          </Col>
-        ))}
-      </Row>
-    </>
+
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <h2>{error}</h2>
+      ) : (
+        <Row>
+          {products.map((product) => (
+            <Col sm={6} md={6} lg={4} xl={3} className="my-4" key={product._id}>
+              <Product product={product} />
+            </Col>
+          ))}
+        </Row>
+      )}
+    </Container>
   );
 }
 

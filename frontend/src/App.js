@@ -17,7 +17,7 @@ const App = () => {
     <Router>
       <Header />
       <main>
-        <Container fluid className="text-center py-5" style={{ width: "80%" }}>
+        <Container fluid className="text-center py-5">
           <Route path="/" component={HomeScreen} exact />
           <Route path="/product/:id" component={ProductScreen} />
         </Container>

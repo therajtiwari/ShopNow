@@ -17,7 +17,7 @@ function Product({ product }) {
         />
         <Card.Body>
           <Card.Title>
-            <Link to={`/product/${product.id}`} style={{ color: "black" }}>
+            <Link to={`/product/${product._id}`} style={{ color: "black" }}>
               <strong>
                 <h3>{product.name}</h3>
               </strong>
@@ -27,7 +27,7 @@ function Product({ product }) {
           <Card.Text>
             <Rating
               rating={product.rating}
-              reviewCount={product.reviewCount}
+              reviewCount={product.numOfReviews}
               color={"grey"}
             />
           </Card.Text>

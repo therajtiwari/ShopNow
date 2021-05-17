@@ -7,6 +7,9 @@ import connectDB from "./config/db.js";
 // routes
 import productRoutes from "./routes/productRoutes.js";
 
+// middleware
+import { notFound, errorHandler } from "./middleware/middleware.js";
+
 const app = express();
 dotenv.config();
 connectDB();
@@ -17,6 +20,9 @@ app.get("/", (req, res) => {
 
 // redirecting the product route to the seperate productRoute
 app.use("/api/products", productRoutes);
+
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
