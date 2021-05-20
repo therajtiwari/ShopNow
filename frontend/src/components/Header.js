@@ -41,7 +41,7 @@ const Header = () => {
                   <h5 className="nav-link-name">Cart</h5>
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/signin">
+              <LinkContainer to="/login">
                 <Nav.Link className="px-3">
                   <FontAwesomeIcon
                     className="nav-icon"

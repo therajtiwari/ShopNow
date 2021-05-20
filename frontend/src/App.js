@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
+import LoginScreen from "./screens/LoginScreen";
 import { Container } from "react-bootstrap";
 
 //router
@@ -18,6 +19,7 @@ const App = () => {
       <Header />
       <main>
         <Container fluid className="text-center py-5">
+          <Route path="/login" component={LoginScreen} />
           <Route path="/" component={HomeScreen} exact />
           <Route path="/product/:id" component={ProductScreen} />
         </Container>
