@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUserDetails } from "../actions/userActions.js";
+import { getUserDetails, updateUserProfile } from "../actions/userActions.js";
 
 import { Row, Col, Form, Button, Container } from "react-bootstrap";
 import Message from "../components/Message";
@@ -18,12 +18,14 @@ const ProfileScreen = ({ location, history }) => {
   const userProfile = useSelector((state) => state.userProfile);
   const { loading, error, user } = userProfile;
 
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
+  const { success } = userUpdateProfile;
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-
   useEffect(() => {
     if (!userInfo) {
-      history.push("/login");
+      history.push("/profile");
     } else {
       if (!user.name) {
         dispatch(getUserDetails("profile"));
@@ -36,13 +38,13 @@ const ProfileScreen = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // dispatch register
     if (password !== confirmPassword) {
       setMessage("Passwords do not match");
-    } else if (password.length < 8) {
+    } else if (password.length < 8 && password.length > 0) {
       setMessage("Password has to be atleast 8 characters long");
     } else {
       //dispatch update user
+      dispatch(updateUserProfile({ id: user._id, name, email, password }));
     }
   };
 
@@ -53,6 +55,9 @@ const ProfileScreen = ({ location, history }) => {
           <h2>User Profile</h2>
           {message && <Message variant="danger" message={message} />}
           {error && <Message variant="danger" message={error} />}
+          {success && (
+            <Message variant="success" message={"Updated Successfully"} />
+          )}
           {loading && <Loader />}
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name" style={{ textAlign: "start" }}>
