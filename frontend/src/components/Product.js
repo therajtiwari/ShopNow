@@ -10,11 +10,14 @@ function Product({ product }) {
   return (
     <>
       <Card style={{}} className="p-2 rounded  shadow-sm">
-        <Card.Img
-          variant="top"
-          style={{ width: "100%", objectFit: "cover" }}
-          src={product.image}
-        />
+        <Link to={`/product/${product._id}`}>
+          <Card.Img
+            variant="top"
+            style={{ width: "100%", objectFit: "cover" }}
+            src={product.image}
+          />
+        </Link>
+
         <Card.Body>
           <Card.Title>
             <Link to={`/product/${product._id}`} style={{ color: "black" }}>

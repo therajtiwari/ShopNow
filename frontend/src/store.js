@@ -21,8 +21,8 @@ const reducer = combineReducers({
   userUpdateProfile: userUpdateProfileReducer,
 });
 
-const userInfoFromStorage = localStorage.getItem("useInfo")
-  ? JSON.parse(localStorage.getItem("useInfo"))
+const userInfoFromStorage = localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("userInfo"))
   : undefined;
 
 const initialState = {

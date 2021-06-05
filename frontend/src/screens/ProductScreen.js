@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Row,
@@ -7,6 +7,7 @@ import {
   ListGroup,
   Nav,
   Tab,
+  Form,
 } from "react-bootstrap";
 
 // components
@@ -18,17 +19,23 @@ import Message from "../components/Message";
 import { useSelector, useDispatch } from "react-redux";
 import { listProductDetails } from "../actions/productActions";
 
-function ProductScreen({ match }) {
+function ProductScreen({ match, history }) {
+  const [quantity, setQuantity] = useState(1);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(match.params);
+    // console.log(match);
     dispatch(listProductDetails(match.params.id));
   }, [match, dispatch]);
 
   const productDetails = useSelector((state) => state.productDetails);
-  console.log(productDetails);
+  // console.log(productDetails);
   const { product, error, loading } = productDetails;
+
+  const addToCartHandler = () => {
+    history.push(`/cart/${match.params.id}?qnt=${quantity}`);
+  };
 
   return (
     <>
@@ -81,29 +88,60 @@ function ProductScreen({ match }) {
                           <h4 style={{ marginTop: "8px" }}> Not in Stock</h4>
                         )}
                       </ListGroup.Item>
-                      <ListGroup.Item className="py-3 ">
-                        {product.numInStock > 0 ? (
-                          <Button
-                            variant="success"
-                            size="lg"
-                            style={{ borderRadius: "0px !important" }}
-                          >
-                            Add to Cart
-                          </Button>
-                        ) : (
-                          <Button
-                            variant="dark"
-                            size="lg"
-                            style={{ borderRadius: "0px !important" }}
-                            disabled
-                          >
-                            Add to Cart
-                          </Button>
-                        )}
-                      </ListGroup.Item>
+
+                      {product.numInStock > 0 && (
+                        <ListGroup.Item className="py-4">
+                          <Row>
+                            <Col>
+                              <Form.Control
+                                as="select"
+                                value={quantity}
+                                onChange={(e) => setQuantity(e.target.value)}
+                              >
+                                {[
+                                  ...Array(
+                                    Math.min(10, product.numInStock)
+                                  ).keys(),
+                                ].map((x) => (
+                                  <option key={x + 1} value={x + 1}>
+                                    {x + 1}
+                                  </option>
+                                ))}
+                              </Form.Control>
+                            </Col>
+                          </Row>
+                        </ListGroup.Item>
+                      )}
                     </ListGroup>
                   </Col>
                 </Row>
+
+                <ListGroup>
+                  <Row>
+                    <Col md={4} className="justify-content-center my-2">
+                      {product.numInStock > 0 ? (
+                        <Button
+                          variant="success"
+                          size="lg"
+                          style={{ borderRadius: "0px !important" }}
+                          onClick={addToCartHandler}
+                        >
+                          Add to Cart
+                        </Button>
+                      ) : (
+                        <Button
+                          variant="dark"
+                          size="lg"
+                          style={{ borderRadius: "0px !important" }}
+                          disabled
+                        >
+                          Add to Cart
+                        </Button>
+                      )}
+                      {/* </ListGroup.Item> */}
+                    </Col>
+                  </Row>
+                </ListGroup>
 
                 <hr className="my-4" />
 
