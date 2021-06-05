@@ -11,10 +11,12 @@ import {
   userProfileReducer,
   userUpdateProfileReducer,
 } from "./reducers/userReducers";
+import { cartReducer } from "./reducers/cartReducers";
 
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
+  cart: cartReducer,
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   userProfile: userProfileReducer,
@@ -25,8 +27,12 @@ const userInfoFromStorage = localStorage.getItem("userInfo")
   ? JSON.parse(localStorage.getItem("userInfo"))
   : undefined;
 
+const itemsFromStorage = localStorage.getItem("cartItems")
+  ? JSON.parse(localStorage.getItem("cartItems"))
+  : [];
 const initialState = {
   userLogin: { userInfo: userInfoFromStorage },
+  cart: { cartItems: itemsFromStorage },
 };
 
 const middleware = [thunk];
