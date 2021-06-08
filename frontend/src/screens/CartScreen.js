@@ -7,18 +7,16 @@ import {
   Image,
   Row,
   Col,
+  Card,
   Form,
   Button,
 } from "react-bootstrap";
 import Message from "../components/Message";
 
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 import ProductScreen from "./ProductScreen";
 const CartScreen = ({ match, history, location }) => {
   const productID = match.params.id;
-  // console.log(match);
-  // console.log(history);
-  // console.log(location);
   const quantity = location.search ? Number(location.search.split("=")[1]) : 1;
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -32,7 +30,10 @@ const CartScreen = ({ match, history, location }) => {
   }, [dispatch, productID, quantity]);
 
   const removeFromCartHandler = (id) => {
-    console.log("removed");
+    dispatch(removeFromCart(id));
+  };
+  const checkoutHandler = () => {
+    console.log("checkout");
   };
   return (
     <div>
@@ -40,9 +41,7 @@ const CartScreen = ({ match, history, location }) => {
       <Row className="mx-3">
         <Col md={8} sm={10} style={{ margin: "auto" }}>
           {cartItems.length === 0 ? (
-            <Message>
-              Your cart is empty. <Link to="/">Go to HomePage</Link>
-            </Message>
+            <Message message="Your cart is empty."></Message>
           ) : (
             <ListGroup vvariant="flush" ariant="flush">
               {cartItems.map((product) => (
@@ -99,7 +98,36 @@ const CartScreen = ({ match, history, location }) => {
             </ListGroup>
           )}
         </Col>
-        <Col md={3}></Col>
+        <Col md={3} sm={10} style={{ margin: "0 auto" }} className={"my-2"}>
+          <Card>
+            <ListGroup variant="flush">
+              <ListGroup.Item>
+                <h2>
+                  Subtotal (
+                  {cartItems.reduce((acc, item) => acc + item.quantity, 0)})
+                  items
+                </h2>
+                <h2 class="text-success">
+                  Rs{" "}
+                  {cartItems.reduce(
+                    (acc, item) => acc + item.quantity * item.price,
+                    0
+                  )}
+                </h2>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Button
+                  type="button"
+                  className="btn-block btn-success py-2"
+                  disabled={cartItems.length === 0}
+                  onClick={checkoutHandler}
+                >
+                  <h5 style={{ marginBottom: "0px" }}>Proceed To Checkout</h5>
+                </Button>
+              </ListGroup.Item>
+            </ListGroup>
+          </Card>
+        </Col>
       </Row>
     </div>
   );

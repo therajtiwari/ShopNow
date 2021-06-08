@@ -9,6 +9,10 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       );
 
       if (itemExists) {
+        console.log("state is");
+        console.log(state);
+        // console.log(state.cartItems);
+
         return {
           ...state,
           cartItems: state.cartItems.map((x) =>
@@ -21,6 +25,15 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
           cartItems: [...state.cartItems, item],
         };
       }
+    }
+    case CART_REMOVE_ITEM: {
+      console.log(action.payload);
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (x) => x.productID !== action.payload.productID
+        ),
+      };
     }
     default:
       return state;
