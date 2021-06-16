@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-const formContainer = ({ children }) => {
+const FormContainer = ({ children }) => {
   return (
     <Container>
       <Row className="justify-content-center">
-        <Col xs={12} md={6}>
+        <Col xs={12} md={8}>
           {children}
         </Col>
       </Row>
@@ -13,4 +13,4 @@ const formContainer = ({ children }) => {
   );
 };
 
-export default formContainer;
+export default FormContainer;

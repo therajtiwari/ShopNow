@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  Container,
+  // Container,
   ListGroup,
   Image,
   Row,
@@ -14,7 +14,7 @@ import {
 import Message from "../components/Message";
 
 import { addToCart, removeFromCart } from "../actions/cartActions";
-import ProductScreen from "./ProductScreen";
+
 const CartScreen = ({ match, history, location }) => {
   const productID = match.params.id;
   const quantity = location.search ? Number(location.search.split("=")[1]) : 1;
@@ -33,7 +33,8 @@ const CartScreen = ({ match, history, location }) => {
     dispatch(removeFromCart(id));
   };
   const checkoutHandler = () => {
-    console.log("checkout");
+    // console.log("checkout");
+    history.push("/login?redirect=shipping");
   };
   return (
     <div>
